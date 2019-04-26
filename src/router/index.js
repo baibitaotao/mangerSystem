@@ -9,7 +9,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/login',
       name: 'login',
       component: login
     },
@@ -17,6 +17,12 @@ export default new Router({
       path: '/detail',
       name: 'detail',
       component: detail
+    },
+    // 重定向一个
+    {
+      name:'default',
+      path:'*',
+      redirect:'/login'
     }
   ]
 })
