@@ -49,18 +49,13 @@ export default {
         submitForm(formName){
             this.$refs[formName].validate((valid) => {
               if (valid) {
-                  const loading = this.$loading({
-                    lock: true,
-                    text: '正在登录',
-                    spinner: 'el-icon-loading',
-                    background: 'rgba(0, 0, 0, 0.7)'
-                  });   
+                   
                   let loginParams = {
                       username:this.ruleForm.account,
                       password:this.ruleForm.password
                   }
                    checkUser(loginParams).then(res => {
-                       loading.close();
+                       localStorage.setItem('mytoken',res.data.data.token)
                        this.$router.push({name:'detail'})
                        this.ruleForm.account = null
                        this.ruleForm.password = null   
