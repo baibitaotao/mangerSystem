@@ -15,8 +15,10 @@ axios.interceptors.request.use(function (config) {
         spinner: 'el-icon-loading',
         background: 'rgba(0, 0, 0, 0.7)' 
     });
+   
     if( localStorage.getItem('mytoken')){
-        config.headers.Authorization = localStorage.getItem('mytoken')     
+        config.headers.Authorization = localStorage.getItem('mytoken')   
+       
     }
     return config;
   }, function (error) {

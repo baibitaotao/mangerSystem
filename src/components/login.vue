@@ -13,7 +13,7 @@
                       <el-form-item>
                        <el-button type="primary" @click="submitForm('ruleForm')"  v-loading.fullscreen.lock="fullscreenLoading">登录</el-button>
                      </el-form-item>
-                    </el-form>
+                    </el-form>   
             </div>   
           </div>   
     </div>
@@ -56,6 +56,7 @@ export default {
                   }
                    checkUser(loginParams).then(res => {
                        localStorage.setItem('mytoken',res.data.data.token)
+                       this.$store.commit('testFn',res.data.data.username)
                        this.$router.push({name:'detail'})
                        this.ruleForm.account = null
                        this.ruleForm.password = null   
